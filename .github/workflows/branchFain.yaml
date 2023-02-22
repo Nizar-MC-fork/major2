@@ -2,6 +2,8 @@ name: fail
 on:
   pull_request:
     branches: [main]
+    paths:
+    - major
 
   
 
