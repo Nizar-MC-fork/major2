@@ -12,7 +12,7 @@ jobs:
          $SourceDiff = $diff | Where-Object { $_ -match '^docs/' -or $_ -match '.md$' }
          $HasDiff = $SourceDiff.Length -gt 0
   if: steps.check_file_changed.outputs.docs_changed == 'True'
-      - run: echo 'Make renovate automerge excuted'
-      -  run: exit 1
-      - name: Print message if we don't fail
-        run: echo Should not get here
+      - run:echo 'Make renovate automerge excuted'
+      -  run:exit 1
+      - name:Print message if we don't fail
+        run:echo Should not get here
