@@ -1,17 +1,17 @@
 name: fail
 on:
   pull_request:
-    branches: [main]
-    paths:
-    - major
-
-  
+    branches: [main]  
 
     
 jobs:
   dummy_test:
     runs-on: ubuntu-latest
     steps:
+        # Check if a file under docs/ or with the .md extension has changed (added, modified, deleted)
+         $SourceDiff = $diff | Where-Object { $_ -match '^docs/' -or $_ -match '.md$' }
+         $HasDiff = $SourceDiff.Length -gt 0
+  if: steps.check_file_changed.outputs.docs_changed == 'True'
       - run: echo 'Make renovate automerge excuted'
       -  run: exit 1
       - name: Print message if we don't fail
